@@ -3,13 +3,22 @@ proguard-maven-plugin
 
 Maven Plugin for ProGuard.
 
-We are not the original author of this project, it is a fork of https://github.com/dingxin/proguard-maven-plugin.
+We are not the original author of this project, it is a fork of https://github.com/dingxin/proguard-maven-plugin
+licensed under the Apache License, Version 2.0. 
 
+What have we changed from the original version?
+
+ - plugin compiled for source/target Java 6 rather than Java 9
+ - changed Maven package and artifact names so as not to conflict with the original plugin
+ - removed setting of default options when no options are provided even though a valid configuration file was specified
+ - changed the name of the default configuration file `src/main/proguard/proguard.conf`
+ 
+We gladly give credit to the original plug-in author at https://github.com/dingxin.
 
 Usage
 =====
 
-Add plugin configuration into your project's pom.xml
+Add plugin configuration into your project pom.xml:
 
 ```
 <build>
@@ -50,10 +59,16 @@ Supported `<configuration>` children as below:
 </options>
 ```
 
+No default options are provided.
+ 
+You should specify options here, or via the configuration file (see below), or a combination of the two.
+
 ### ProGuard configuration file ###
 ```
 <configFile>proguard.conf</configFile>
 ```
+
+If you do not specify a configuration file, `src/main/proguard/proguard.conf` will be used by default if it exists.
 
 ### ProGuard Filters for the input jar ###
 ```
@@ -86,7 +101,6 @@ Supported `<configuration>` children as below:
 	<lib>${java.home}/jmods/java.base.jmod(!**.jar;!module-info.class)</lib>
 </libs>
 ```
-
 
 ## Examples ##
 
@@ -178,7 +192,6 @@ Supported `<configuration>` children as below:
 	</plugins>
 </build>
 ```
-
 
 ### Example with Custom Options ###
 ```
