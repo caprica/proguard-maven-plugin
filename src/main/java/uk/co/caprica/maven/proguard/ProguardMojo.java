@@ -62,7 +62,7 @@ public class ProguardMojo extends AbstractMojo {
 	/**
 	 * ProGuard configuration file
 	 */
-	@Parameter(defaultValue = "proguard.conf")
+	@Parameter(defaultValue = "src/main/proguard/proguard.conf")
 	private File configFile;
 
 	/**
