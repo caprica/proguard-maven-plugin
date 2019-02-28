@@ -271,14 +271,13 @@ public class ProguardMojo extends AbstractMojo {
 	}
 
 	private List<String> getArgs() throws MojoFailureException {
-		List<String> args = new ArrayList<>();
+		List<String> args = new ArrayList<String>();
 		argForConfigFile(args);
 		argForInjar(args);
 		argForOutjar(args);
 		argForLibs(args);
 		argForDependency(args);
 		argForOptions(args);
-
 		return args;
 	}
 
