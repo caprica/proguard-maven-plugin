@@ -43,7 +43,7 @@
 
 	<groupId>uk.co.caprica</groupId>
 	<artifactId>proguard-maven-plugin</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 
 	<name>Maven Plugin for ProGuard</name>
 	<description>Maven Plugin for ProGuard</description>
