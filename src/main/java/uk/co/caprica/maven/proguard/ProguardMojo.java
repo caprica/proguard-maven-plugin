@@ -349,15 +349,6 @@ public class ProguardMojo extends AbstractMojo {
 	private void argForOptions(List<String> args) {
 		if (options != null) {
 			Collections.addAll(args, options);
-		} else {
-			// Default options
-			args.add("-dontoptimize");// 不要优化
-			args.add("-keepattributes *Annotation*");// 避免混淆注解
-			args.add("-keepattributes Signature");// 避免混淆泛型
-			args.add("-keepattributes InnerClasses");// 避免混淆内部类
-			args.add("-keepclassmembers class * { @** *; }");// 避免混淆带注解的成员
-			args.add("-keepparameternames");// 避免混淆被保护的方法的参数类型和参数名
-			args.add("-keep public class * { public protected *; }");// 避免混淆公开的成员
 		}
 	}
 
