@@ -1,15 +1,55 @@
+<!--
+    proguard-maven-plugin
+
+    We are not the original author of this project, it was was forked from
+    https://github.com/dingxin/proguard-maven-plugin
+
+    Add something like the following to your plugins configuration:
+
+    <plugin>
+        <groupId>uk.co.caprica</groupId>
+        <artifactId>proguard-maven-plugin</artifactId>
+        <version>1.0.0</version>
+        <executions>
+            <execution>
+                <phase>package</phase>
+                <goals>
+                    <goal>proguard</goal>
+                </goals>
+            </execution>
+        </executions>
+        <configuration>
+            <configFile>src/main/proguard/production.conf</configFile>
+            <libs>
+                <lib>${java.home}/jmods/java.base.jmod(!**.jar;!module-info.class)</lib>
+                <lib>${java.home}/jmods/java.desktop.jmod(!**.jar;!module-info.class)</lib>
+            </libs>
+        </configuration>
+    </plugin>
+
+    If no configFile configuration is set, "src/main/proguard/proguard.conf" will be used if it exists.
+
+-->
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>9</version>
+	</parent>
+
 	<groupId>uk.co.caprica</groupId>
 	<artifactId>proguard-maven-plugin</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 
-	<packaging>maven-plugin</packaging>
-
-	<url>https://github.com/dingxin/proguard-maven-plugin</url>
 	<name>Maven Plugin for ProGuard</name>
 	<description>Maven Plugin for ProGuard</description>
+	<url>https://github.com/dingxin/proguard-maven-plugin</url>
+
+	<packaging>maven-plugin</packaging>
 
 	<licenses>
 		<license>
@@ -18,10 +58,10 @@
 		</license>
 	</licenses>
 
-	<scm>
-		<url>https://github.com/caprica/proguard-maven-plugin</url>
-		<connection>scm:git:https://github.com/caprica/proguard-maven-plugin.git</connection>
-	</scm>
+	<organization>
+		<name>Caprica Software Limited</name>
+		<url>http://www.capricasoftware.co.uk</url>
+	</organization>
 
 	<developers>
 		<developer>
@@ -38,28 +78,20 @@
 		</developer>
 	</developers>
 
+	<issueManagement>
+		<system>Github</system>
+		<url>https://github.com/caprica/proguard-maven-plugin/issues</url>
+	</issueManagement>
+
+	<scm>
+		<connection>scm:git:git@github.com:caprica/proguard-maven-plugin.git</connection>
+		<developerConnection>scm:git:git@github.com:caprica/proguard-maven-plugin.git</developerConnection>
+		<url>git@github.com:caprica/proguard-maven-plugin.git</url>
+	</scm>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.0</version>
-				<configuration>
-					<source>6</source>
-					<target>6</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-plugin-plugin</artifactId>
-				<version>3.6.0</version>
-			</plugin>
-		</plugins>
-	</build>
 
 	<dependencies>
 		<dependency>
@@ -101,76 +133,23 @@
 		</dependency>
 	</dependencies>
 
-	<distributionManagement>
-		<snapshotRepository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</snapshotRepository>
-		<repository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-		</repository>
-	</distributionManagement>
-
-	<profiles>
-		<profile>
-			<id>release</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-source-plugin</artifactId>
-						<version>3.0.1</version>
-						<executions>
-							<execution>
-								<id>attach-sources</id>
-								<goals>
-									<goal>jar-no-fork</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-javadoc-plugin</artifactId>
-						<version>3.0.1</version>
-						<executions>
-							<execution>
-								<id>attach-javadocs</id>
-								<goals>
-									<goal>jar</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-gpg-plugin</artifactId>
-						<version>1.6</version>
-						<executions>
-							<execution>
-								<id>sign-artifacts</id>
-								<phase>verify</phase>
-								<goals>
-									<goal>sign</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.sonatype.plugins</groupId>
-						<artifactId>nexus-staging-maven-plugin</artifactId>
-						<version>1.6.8</version>
-						<extensions>true</extensions>
-						<configuration>
-							<serverId>ossrh</serverId>
-							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
-							<autoReleaseAfterClose>true</autoReleaseAfterClose>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<source>6</source>
+					<target>6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-plugin-plugin</artifactId>
+				<version>3.6.0</version>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
