@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.github.dingxin.maven.plugins.proguard;
+package uk.co.caprica.maven.proguard;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -38,8 +38,10 @@ import org.apache.tools.ant.Project;
 import org.apache.tools.ant.taskdefs.Java;
 
 /**
- * Maven Plugin for ProGuard
- * 
+ * Maven Plugin for ProGuard.
+ * <p>
+ * This project is a fork of https://github.com/dingxin/proguard-maven-plugin.
+ *
  * @author dingxin
  */
 @Mojo(name = "proguard", defaultPhase = LifecyclePhase.PACKAGE, requiresProject = true, threadSafe = true, requiresDependencyResolution = ResolutionScope.COMPILE)

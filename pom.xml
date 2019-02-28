@@ -1,10 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.github.dingxin</groupId>
+	<groupId>uk.co.caprica</groupId>
 	<artifactId>proguard-maven-plugin</artifactId>
-	<version>1.0.4</version>
+	<version>1.0.0-SNAPSHOT</version>
+
 	<packaging>maven-plugin</packaging>
+
 	<url>https://github.com/dingxin/proguard-maven-plugin</url>
 	<name>Maven Plugin for ProGuard</name>
 	<description>Maven Plugin for ProGuard</description>
@@ -17,15 +19,22 @@
 	</licenses>
 
 	<scm>
-		<url>https://github.com/dingxin/proguard-maven-plugin</url>
-		<connection>scm:git:https://github.com/dingxin/proguard-maven-plugin.git</connection>
+		<url>https://github.com/caprica/proguard-maven-plugin</url>
+		<connection>scm:git:https://github.com/caprica/proguard-maven-plugin.git</connection>
 	</scm>
 
 	<developers>
 		<developer>
-			<id>dingxin</id>
-			<name>dingxin</name>
-			<email>dingxin.git@gmail.com</email>
+			<id>mark</id>
+			<name>Mark Lee</name>
+			<email>mark.lee@capricasoftware.co.uk</email>
+			<url>https://github.com/caprica/proguard-maven-plugin</url>
+			<organization>Caprica Software Limited</organization>
+			<organizationUrl>http://www.capricasoftware.co.uk</organizationUrl>
+			<roles>
+				<role>developer</role>
+			</roles>
+			<timezone>0</timezone>
 		</developer>
 	</developers>
 
@@ -53,15 +62,12 @@
 	</build>
 
 	<dependencies>
-		<!-- ProGuard -->
 		<dependency>
 			<groupId>net.sf.proguard</groupId>
 			<artifactId>proguard-base</artifactId>
-			<version>6.1.0beta1</version>
+			<version>6.1.0beta2</version>
 			<scope>runtime</scope>
 		</dependency>
-
-		<!-- Maven Plugin -->
 		<dependency>
 			<groupId>org.apache.maven</groupId>
 			<artifactId>maven-plugin-api</artifactId>
@@ -73,8 +79,6 @@
 			<version>3.6.0</version>
 			<scope>provided</scope>
 		</dependency>
-
-		<!-- Other Dependencies -->
 		<dependency>
 			<groupId>org.apache.ant</groupId>
 			<artifactId>ant</artifactId>
@@ -93,7 +97,7 @@
 		<dependency>
 			<groupId>org.apache.maven</groupId>
 			<artifactId>maven-archiver</artifactId>
-			<version>3.3.0</version>
+			<version>3.4.0</version>
 		</dependency>
 	</dependencies>
 

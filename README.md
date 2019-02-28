@@ -1,32 +1,36 @@
-# proguard-maven-plugin #
+proguard-maven-plugin
+=====================
 
-Maven Plugin for ProGuard
+Maven Plugin for ProGuard.
+
+We are not the original author of this project, it is a fork of https://github.com/dingxin/proguard-maven-plugin.
 
 
-## Usage ##
+Usage
+=====
 
 Add plugin configuration into your project's pom.xml
 
 ```
 <build>
-	<plugins>
-		<plugin>
-			<groupId>com.github.dingxin</groupId>
-			<artifactId>proguard-maven-plugin</artifactId>
-			<version>1.0.0</version>
-			<executions>
-				<execution>
-					<phase>package</phase>
-					<goals>
-						<goal>proguard</goal>
-					</goals>
-				</execution>
-			</executions>
-			<configuration>
-				...
-			</configuration>
-		</plugin>
-	</plugins>
+    <plugins>
+        <plugin>
+            <groupId>uk.co.caprica.maven.proguard</groupId>
+            <artifactId>proguard-maven-plugin</artifactId>
+            <version>1.0.0</version>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>proguard</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <configuration>
+            ...
+            </configuration>
+        </plugin>
+    </plugins>
 </build>
 ```
 
@@ -91,9 +95,9 @@ Supported `<configuration>` children as below:
 <build>
 	<plugins>
 		<plugin>
-			<groupId>com.github.dingxin</groupId>
+			<groupId>uk.co.caprica</groupId>
 			<artifactId>proguard-maven-plugin</artifactId>
-			<version>1.0.3</version>
+			<version>1.0.0</version>
 			<executions>
 				<execution>
 					<phase>package</phase>
@@ -117,9 +121,9 @@ Supported `<configuration>` children as below:
 <build>
 	<plugins>
 		<plugin>
-			<groupId>com.github.dingxin</groupId>
+			<groupId>uk.co.caprica</groupId>
 			<artifactId>proguard-maven-plugin</artifactId>
-			<version>1.0.3</version>
+			<version>1.0.0</version>
 			<executions>
 				<execution>
 					<phase>package</phase>
@@ -145,9 +149,9 @@ Supported `<configuration>` children as below:
 <build>
 	<plugins>
 		<plugin>
-			<groupId>com.github.dingxin</groupId>
+			<groupId>uk.co.caprica</groupId>
 			<artifactId>proguard-maven-plugin</artifactId>
-			<version>1.0.3</version>
+			<version>1.0.0</version>
 			<executions>
 				<execution>
 					<phase>package</phase>
@@ -181,9 +185,9 @@ Supported `<configuration>` children as below:
 <build>
 	<plugins>
 		<plugin>
-			<groupId>com.github.dingxin</groupId>
+			<groupId>uk.co.caprica</groupId>
 			<artifactId>proguard-maven-plugin</artifactId>
-			<version>1.0.3</version>
+			<version>1.0.0</version>
 			<executions>
 				<execution>
 					<phase>prepare-package</phase>
